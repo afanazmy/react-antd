@@ -1,14 +1,19 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import SignIn from "./containers/Pages/SignIn";
+import asyncComponent from "./lib/asyncComponent";
 
-const PublicRoutes = () => (
+const PublicRoutes = ({ history }) => (
   <BrowserRouter>
     <Switch>
-      <Route exact path="/">
-        <SignIn />
-      </Route>
+      <Route
+        exact
+        history={history}
+        path="/"
+        component={asyncComponent(() =>
+          import("./containers/Pages/SignIn/SignIn")
+        )}
+      />
     </Switch>
   </BrowserRouter>
 );

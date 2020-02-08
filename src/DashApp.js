@@ -12,7 +12,7 @@ import { store } from "./redux/store";
 
 const currentAppLocale =
   AppLocale[
-    getCurrentLanguage(store.getState().dashApp.language || "EN").locale
+    getCurrentLanguage(store.getState().dashApp.language || "ID").locale
   ];
 
 const DashApp = () => (
